@@ -1,0 +1,33 @@
+﻿        <Window x:Class="PascalSharp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ps="clr-namespace:PascalSharp"
+        Title="PascalSharp" Background="Black" Height="600" Width="800" WindowState="Maximized" WindowStyle="None" Icon="PascalSharp.ico">
+    
+    <Canvas Name="MainCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+    
+    <!--<Window.Resources>
+        <Storyboard x:Key="MainStoryboard" />
+    </Window.Resources>-->
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ps:Commands.Render" Executed="RenderCommandExecuted" />
+        <CommandBinding Command="ps:Commands.Clear" Executed="ClearCommandExecuted" />
+        <CommandBinding Command="ps:Commands.Close" Executed="CloseCommandExecuted" />
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Gesture="CTRL+R" Command="ps:Commands.Render" />
+        <KeyBinding Gesture="CTRL+C" Command="ps:Commands.Clear" />
+        <KeyBinding Key="ESC" Command="ps:Commands.Close" />
+    </Window.InputBindings>
+
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Render" Click="RenderClick" />
+            <MenuItem Header="Clear" Click="ClearClick" />
+            <MenuItem Header="Close" Click="CloseClick" />
+        </ContextMenu>
+    </Window.ContextMenu>
+    
+</Window>
